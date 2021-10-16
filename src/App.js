@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useInput } from 'hooks/useInput';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const username = useInput('');
+    const email = useInput('');
+
+    return (
+        <div>
+            <form>
+                <input {...email} type="email" name="email" placeholder="Email" />
+                <input {...username} type="text" name="username" placeholder="Username" />
+            </form>
+            <div>{username.value}</div>
+            <div>{email.value}</div>
+        </div>
+    );
 }
 
 export default App;
