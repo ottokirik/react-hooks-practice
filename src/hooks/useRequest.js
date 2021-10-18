@@ -8,7 +8,10 @@ export const useRequest = (request) => {
     useEffect(() => {
         setLoading(true);
         request()
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) throw new Error();
+                return response.json();
+            })
             .then((json) => setData(json))
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
