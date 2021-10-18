@@ -1,3 +1,4 @@
+import { List } from 'components/List';
 import { useInput } from 'hooks/useInput';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
             </form>
             <div>{username.value}</div>
             <div>{email.value}</div>
+            <List />
         </div>
     );
 }
